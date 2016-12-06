@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Since 
+# version 2.0 of QGIS this is the proper way to supply 
+# information about a plugin. The old method of 
+# embedding metadata in __init__.py will 
+# is no longer supported since version 2.0.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=StormClean
+qgisMinimumVersion=2.0
+description=StormClean provides the opportunity to first responders and clean up teams to directly process and prioritise Voluntary Geographic Information (VGI).
+version=0.1
+author=D. Kersbergen, L. Geerts, C. Kleijwegt
+email=d.kersbergen@student.tudelft.nl
+
+about=StormClean provides the opportunity to first responders and clean up teams to directly process and prioritise Voluntary Geographic Information (VGI). This helps these agencies to more adequately help citizens after a disaster with large amounts of property damage and disruptions to the modern lifestyle. The plugin uses different kinds of information to determine the severity and outfall of a reported incident. Therefor it compares the amount and kind of information provided on an incident. For example More reports will lead to a higher priority as multiple people are affected by the incident as well as multiple incidents in a close radius. It also trigger special warnings in case casualties are reported, the plugin does not replace the emergency numbers (eg 911 or 112) and will not allow the operator to dispatch. It will however, if the citizen in question wants to report casualties trigger them to call the emergency number in the area. StormClean is focused on a more reliable and quicker solution for property and material damage after a disaster, whether this is natural or human inflicted.
+
+tracker=https://github.com/LucasGeerts/2016_Group10_StormClean
+repository=https://github.com/LucasGeerts/2016_Group10_StormClean
+# End of mandatory metadata
+
+# Recommended items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=distance, cad, ecology, field, flow, flood, labeling, layers, openlayers, openstreetmap, streetview
+
+homepage=https://github.com/LucasGeerts/2016_Group10_StormClean
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=True
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
