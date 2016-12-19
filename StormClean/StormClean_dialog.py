@@ -127,15 +127,35 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
 
         msgBox = QtGui.QMessageBox()
         msgBox.setWindowTitle('StormClean')
-        msgBox.setText('Would you like to select'+ str(name.text() + '?'))
+        msgBox.setText('Would you like to select '+ str(name.text() + '?'))
         msgBox.addButton(QtGui.QPushButton('No'), QtGui.QMessageBox.RejectRole)
         msgBox.addButton(QtGui.QPushButton('Yes'), QtGui.QMessageBox.AcceptRole)
         ret = msgBox.exec_()
         if ret == 0:
             pass
         elif ret == 1:
+
+
+            self.WijkName.setFontPointSize(18)
+            self.WijkName.setFontWeight(600)
+            self.WijkName.setText(name.text())
+
+
+            self.canvas_1.zoomToSelected(layer)
+            canvas_layers_1 = []
+            QgsMapLayerRegistry.removeAll
+            for item in uf.getCanvasLayers(self.iface, geom='all', provider='all'):
+                print item
+                if not item.isValid():
+                    raise IOError, "Failed to open the layer"
+                QgsMapLayerRegistry.instance().addMapLayer(item)
+                canvas_layers_1.append(QgsMapCanvasLayer(item))
+            item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
+            QgsMapLayerRegistry.instance().addMapLayer(item0)
+            canvas_layers_1.append(QgsMapCanvasLayer(item0))
+            self.canvas_1.setLayerSet(canvas_layers_1)
             self.Pages.setCurrentIndex(2)
-            self.loadpage3()
+
         layer.removeSelection()
         self.canvas.setExtent(layer.extent())
         self.canvas.refresh()
