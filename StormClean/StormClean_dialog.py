@@ -55,7 +55,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
     #GUI
         self.Pages.setCurrentIndex(0)
     #Interaction
-        self.Login.clicked.connect(self.buttonOKclicked)
+        self.Login.clicked.connect(self.buttontopage1)
         self.Cancel.clicked.connect(self.close)
         self.pushButton_logout.clicked.connect(self.Logoutclicked)
         self.pushButton_logout2.clicked.connect(self.Logoutclicked)
@@ -63,6 +63,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         self.pushButton_logout4.clicked.connect(self.Logoutclicked)
         self.pushButton_logout5.clicked.connect(self.Logoutclicked)
         self.listWidget_listofneighbourhood.currentItemChanged.connect(self.returnitem)
+        self.back.clicked.connect(self.buttontopage1)
 
     def showEvent(self, event):
         self.Pages.setCurrentIndex(0)
@@ -81,7 +82,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
                 self.iface.addProject(unicode(new_file))
                 scenario_open = True
 
-    def buttonOKclicked(self):
+    def buttontopage1(self):
         self.Pages.setCurrentIndex(1)
         if self.canvas.layerCount() == 0:
             #Open map to canvas
