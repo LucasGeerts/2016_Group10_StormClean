@@ -234,6 +234,31 @@ def getFieldValues(layer, fieldname, null=True, selection=False):
                     ids.append(feature.id())
     return attributes, ids
 
+def getFieldValuesSorted(layer, fieldname, sorted = 'id', null=True, selection=False):
+    attributessorted = []
+    if fieldExists(layer, fieldname):
+        if selection:
+            features = layer.selectedFeatures()
+        else:
+            request = QgsFeatureRequest().setSubsetOfAttributes([getFieldIndex(layer, fieldname)])
+            features = layer.getFeatures(request)
+        if null:
+            for feature in features:
+                if sorted == 'id':
+                    attributessorted.append((feature.id(),feature.attribute(fieldname)))
+                else:
+                    attributessorted.append((feature.attribute(sorted), feature.id(), feature.attribute(fieldname)))
+        else:
+            for feature in features:
+                val = feature.attribute(fieldname)
+                if val != NULL:
+                    if sorted == 'id':
+                        attributessorted.append((feature.id(), feature.attribute(fieldname)))
+                    else:
+                        attributessorted.append((feature.attribute(sorted), feature.id(), feature.attribute(fieldname)))
+    attributessorted.sort(reverse=True)
+    return attributessorted
+
 
 def addFields(layer, names, types):
     # types can be QVariant.Int, QVariant.Double, QVariant.String

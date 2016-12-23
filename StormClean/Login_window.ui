@@ -362,22 +362,6 @@ p, li { white-space: pre-wrap; }
       <string>Log Out</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_1incidentsmap">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>210</y>
-       <width>571</width>
-       <height>291</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>Kaart-locatiemap.jpg</pixmap>
-     </property>
-    </widget>
     <widget class="QTextBrowser" name="textBrowser_incidentname">
      <property name="geometry">
       <rect>
@@ -434,7 +418,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download (1).jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download (1).jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -453,7 +437,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download.jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download.jpg</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -469,7 +453,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download (2).jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download (2).jpg</pixmap>
      </property>
     </widget>
     <widget class="QTextBrowser" name="textBrowser_manualdiscription">
@@ -513,9 +497,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="label_Question">
      <property name="geometry">
       <rect>
-       <x>440</x>
+       <x>460</x>
        <y>130</y>
-       <width>201</width>
+       <width>151</width>
        <height>21</height>
       </rect>
      </property>
@@ -549,6 +533,29 @@ p, li { white-space: pre-wrap; }
       <string>No</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="back_2">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>20</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </widget>
+    <widget class="QgsMapCanvas" name="QgsMapCanvas_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>210</y>
+       <width>571</width>
+       <height>291</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="page_5">
     <widget class="QLabel" name="label_Navigation">
@@ -564,7 +571,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>Parcours_Bavaria_City_Racing_Rotterdam.jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/Parcours_Bavaria_City_Racing_Rotterdam.jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -643,7 +650,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download (2).jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download (2).jpg</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_photo1_2">
@@ -659,7 +666,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download (1).jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download (1).jpg</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -697,7 +704,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>Kaart-locatiemap.jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/Kaart-locatiemap.jpg</pixmap>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_helpneeded">
@@ -752,7 +759,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>download.jpg</pixmap>
+      <pixmap>C:/Users/Python/.designer/backup/download.jpg</pixmap>
      </property>
     </widget>
     <widget class="QTextBrowser" name="textBrowser_incidentname_2">
@@ -785,7 +792,7 @@ p, li { white-space: pre-wrap; }
       <string>I want to leave the incident</string>
      </property>
     </widget>
-    <widget class="QgsMapCanvas" name="QgsMapCanvas_2" native="true">
+    <widget class="QgsMapCanvas" name="QgsMapCanvas_4" native="true">
      <property name="geometry">
       <rect>
        <x>30</x>

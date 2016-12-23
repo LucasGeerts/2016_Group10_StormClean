@@ -50,6 +50,8 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         self.canvas = self.QgsMapCanvas
         self.canvas_1 = self.QgsMapCanvas_1
         self.canvas_2 = self.QgsMapCanvas_2
+        #self.canvas_3 = self.QgsMapCanvas_3
+        self.canvas_4 = self.QgsMapCanvas_4
 
 
     #GUI
@@ -62,7 +64,8 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         self.pushButton_logout3.clicked.connect(self.Logoutclicked)
         self.pushButton_logout4.clicked.connect(self.Logoutclicked)
         self.pushButton_logout5.clicked.connect(self.Logoutclicked)
-        self.listWidget_listofneighbourhood.currentItemChanged.connect(self.returnitem)
+        self.listWidget_listofneighbourhood.currentItemChanged.connect(self.topage2)
+        self.listWidget_incidents.currentRowChanged.connect(self.topage3)
         self.back.clicked.connect(self.buttontopage1)
 
     def showEvent(self, event):
@@ -118,7 +121,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             self.Box_Password.clear()
             self.Box_Username.clear()
 
-    def returnitem(self, name=''):
+    def topage2(self, name=''):
         layer = uf.getLegendLayerByName(self.iface, 'Wijk_Rott')
         expr = QgsExpression('"WK_NAAM"  =  ' + "'" + str(name.text()) + "'")
         attr = layer.getFeatures(QgsFeatureRequest(expr))
@@ -144,9 +147,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
 
             self.canvas_1.zoomToSelected(layer)
             canvas_layers_1 = []
-            QgsMapLayerRegistry.removeAll
             for item in uf.getCanvasLayers(self.iface, geom='all', provider='all'):
-                print item
                 if not item.isValid():
                     raise IOError, "Failed to open the layer"
                 QgsMapLayerRegistry.instance().addMapLayer(item)
@@ -156,12 +157,61 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             canvas_layers_1.append(QgsMapCanvasLayer(item0))
             self.canvas_1.setLayerSet(canvas_layers_1)
             self.Pages.setCurrentIndex(2)
+            self.listWidget_incidents.clear()
+            selection = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
+            selection.invertSelectionInRectangle(self.canvas_1.extent())
+
+            table = uf.getFieldValuesSorted(uf.getLegendLayerByName(self.iface, 'IncidentPoints'), 'IncidentName',sorted = 'IncidentValue',  selection=True)
+            global table
+            for itemsort, itemid, itemtext in table:
+                if itemtext == " REMOVE" or itemtext == "REMOVE" or str(itemtext) == "NULL":
+                    pass
+                else:
+                    self.listWidget_incidents.addItem(itemsort + ' --- ' + itemtext)
+            selection.removeSelection()
+
 
         layer.removeSelection()
         self.canvas.setExtent(layer.extent())
         self.canvas.refresh()
 
+    def topage3(self, index):
 
+        layer = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
+        expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
+        attr = layer.getFeatures(QgsFeatureRequest(expr))
+        ids = [att.id() for att in attr]
+        layer.setSelectedFeatures(ids)
+        self.canvas_1.zoomToSelected(layer)
+
+        msgBox = QtGui.QMessageBox()
+        msgBox.setWindowTitle('StormClean')
+        msgBox.setText('Would you like to select '+ str(table[index][2]) + '?')
+        msgBox.addButton(QtGui.QPushButton('No'), QtGui.QMessageBox.RejectRole)
+        msgBox.addButton(QtGui.QPushButton('Yes'), QtGui.QMessageBox.AcceptRole)
+        ret = msgBox.exec_()
+        if ret == 0:
+            pass
+        elif ret == 1:
+            self.canvas_2.zoomToSelected(layer)
+            canvas_layers_2 = []
+            for item in uf.getCanvasLayers(self.iface, geom='all', provider='all'):
+                if not item.isValid():
+                    raise IOError, "Failed to open the layer"
+                QgsMapLayerRegistry.instance().addMapLayer(item)
+                canvas_layers_2.append(QgsMapCanvasLayer(item))
+            item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
+            QgsMapLayerRegistry.instance().addMapLayer(item0)
+            canvas_layers_2.append(QgsMapCanvasLayer(item0))
+            self.canvas_2.setLayerSet(canvas_layers_2)
+            self.Pages.setCurrentIndex(3)
+            print table
+            print index
+
+
+        layer.removeSelection()
+        self.canvas_1.zoomToPreviousExtent()
+        self.canvas_1.refresh()
 
 
 
