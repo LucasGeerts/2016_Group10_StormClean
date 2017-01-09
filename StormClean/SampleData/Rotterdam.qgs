@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.14.7-Essen">
+<qgis projectname="" version="2.14.8-Essen">
   <title></title>
   <layer-tree-group expanded="1" checked="Qt::Checked" name="">
     <customproperties/>
@@ -18,15 +18,18 @@
     <layer-tree-layer expanded="1" checked="Qt::Checked" id="Wijk_Rott20161223102810558" name="Wijk_Rott">
       <customproperties/>
     </layer-tree-layer>
+    <layer-tree-layer expanded="1" checked="Qt::Checked" id="brtachtergrondkaartgrijs20161223115650735" name="BackgroundGrey">
+      <customproperties/>
+    </layer-tree-layer>
   </layer-tree-group>
   <relations/>
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>88529.44991340072010644</xmin>
-      <ymin>429887.17952032486209646</ymin>
-      <xmax>99812.89776191147393547</xmax>
-      <ymax>441389.22728796402225271</ymax>
+      <xmin>87387.54986426686809864</xmin>
+      <ymin>428163.94853708654409274</ymin>
+      <xmax>98670.99771277762192767</xmax>
+      <ymax>439665.99630472570424899</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>0</projections>
@@ -52,83 +55,9 @@
       <item>BAG_2016_Rotterdam_buildings_Edit20161223103323125</item>
       <item>NWB_2016_Rotterdam_train_tracks_Edit20161223103449696</item>
       <item>NWB_2016_Rotterdam_roads_Edit20161223103719705</item>
+      <item>brtachtergrondkaartgrijs20161223115650735</item>
     </custom-order>
   </layer-tree-canvas>
-  <mapcanvas>
-    <units>meters</units>
-    <extent>
-      <xmin>80531.16738586426072288</xmin>
-      <ymin>425641.97106170654296875</ymin>
-      <xmax>103098.06308288576838095</xmax>
-      <ymax>448646.06659698486328125</ymax>
-    </extent>
-    <rotation>0</rotation>
-    <projections>0</projections>
-    <destinationsrs>
-      <spatialrefsys>
-        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
-        <srsid>2517</srsid>
-        <srid>28992</srid>
-        <authid>EPSG:28992</authid>
-        <description>Amersfoort / RD New</description>
-        <projectionacronym>sterea</projectionacronym>
-        <ellipsoidacronym>bessel</ellipsoidacronym>
-        <geographicflag>false</geographicflag>
-      </spatialrefsys>
-    </destinationsrs>
-    <rendermaptile>0</rendermaptile>
-    <layer_coordinate_transform_info/>
-  </mapcanvas>
-  <mapcanvas>
-    <units>meters</units>
-    <extent>
-      <xmin>80531.16738586426072288</xmin>
-      <ymin>425641.97106170654296875</ymin>
-      <xmax>103098.06308288576838095</xmax>
-      <ymax>448646.06659698486328125</ymax>
-    </extent>
-    <rotation>0</rotation>
-    <projections>0</projections>
-    <destinationsrs>
-      <spatialrefsys>
-        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
-        <srsid>2517</srsid>
-        <srid>28992</srid>
-        <authid>EPSG:28992</authid>
-        <description>Amersfoort / RD New</description>
-        <projectionacronym>sterea</projectionacronym>
-        <ellipsoidacronym>bessel</ellipsoidacronym>
-        <geographicflag>false</geographicflag>
-      </spatialrefsys>
-    </destinationsrs>
-    <rendermaptile>0</rendermaptile>
-    <layer_coordinate_transform_info/>
-  </mapcanvas>
-  <mapcanvas>
-    <units>meters</units>
-    <extent>
-      <xmin>80531.16738586426072288</xmin>
-      <ymin>425641.97106170654296875</ymin>
-      <xmax>103098.06308288576838095</xmax>
-      <ymax>448646.06659698486328125</ymax>
-    </extent>
-    <rotation>0</rotation>
-    <projections>0</projections>
-    <destinationsrs>
-      <spatialrefsys>
-        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
-        <srsid>2517</srsid>
-        <srid>28992</srid>
-        <authid>EPSG:28992</authid>
-        <description>Amersfoort / RD New</description>
-        <projectionacronym>sterea</projectionacronym>
-        <ellipsoidacronym>bessel</ellipsoidacronym>
-        <geographicflag>false</geographicflag>
-      </spatialrefsys>
-    </destinationsrs>
-    <rendermaptile>0</rendermaptile>
-    <layer_coordinate_transform_info/>
-  </mapcanvas>
   <legend updateDrawingOrder="true">
     <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="IncidentPoints" showFeatureCount="0">
       <filegroup open="true" hidden="false">
@@ -155,7 +84,112 @@
         <legendlayerfile isInOverview="0" layerid="Wijk_Rott20161223102810558" visible="1"/>
       </filegroup>
     </legendlayer>
+    <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="BackgroundGrey" showFeatureCount="0">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" layerid="brtachtergrondkaartgrijs20161223115650735" visible="1"/>
+      </filegroup>
+    </legendlayer>
   </legend>
+  <mapcanvas>
+    <units>meters</units>
+    <extent>
+      <xmin>88529.44991340072010644</xmin>
+      <ymin>429887.17952032486209646</ymin>
+      <xmax>99812.89776191147393547</xmax>
+      <ymax>441389.22728796402225271</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <projections>0</projections>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
+        <srsid>2517</srsid>
+        <srid>28992</srid>
+        <authid>EPSG:28992</authid>
+        <description>Amersfoort / RD New</description>
+        <projectionacronym>sterea</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <layer_coordinate_transform_info/>
+  </mapcanvas>
+  <mapcanvas>
+    <units>meters</units>
+    <extent>
+      <xmin>88529.44991340072010644</xmin>
+      <ymin>429887.17952032486209646</ymin>
+      <xmax>99812.89776191147393547</xmax>
+      <ymax>441389.22728796402225271</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <projections>0</projections>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
+        <srsid>2517</srsid>
+        <srid>28992</srid>
+        <authid>EPSG:28992</authid>
+        <description>Amersfoort / RD New</description>
+        <projectionacronym>sterea</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <layer_coordinate_transform_info/>
+  </mapcanvas>
+  <mapcanvas>
+    <units>meters</units>
+    <extent>
+      <xmin>88529.44991340072010644</xmin>
+      <ymin>429887.17952032486209646</ymin>
+      <xmax>99812.89776191147393547</xmax>
+      <ymax>441389.22728796402225271</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <projections>0</projections>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
+        <srsid>2517</srsid>
+        <srid>28992</srid>
+        <authid>EPSG:28992</authid>
+        <description>Amersfoort / RD New</description>
+        <projectionacronym>sterea</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <layer_coordinate_transform_info/>
+  </mapcanvas>
+  <mapcanvas>
+    <units>meters</units>
+    <extent>
+      <xmin>88529.44991340072010644</xmin>
+      <ymin>429887.17952032486209646</ymin>
+      <xmax>99812.89776191147393547</xmax>
+      <ymax>441389.22728796402225271</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <projections>0</projections>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
+        <srsid>2517</srsid>
+        <srid>28992</srid>
+        <authid>EPSG:28992</authid>
+        <description>Amersfoort / RD New</description>
+        <projectionacronym>sterea</projectionacronym>
+        <ellipsoidacronym>bessel</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <layer_coordinate_transform_info/>
+  </mapcanvas>
   <projectlayers>
     <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <extent>
@@ -165,7 +199,7 @@
         <ymax>443208.68199999997159466</ymax>
       </extent>
       <id>BAG_2016_Rotterdam_buildings_Edit20161223103323125</id>
-      <datasource>./BAG_2016_Rotterdam_buildings_Edit.shp</datasource>
+      <datasource>../../../../../.qgis2/python/plugins/StormClean/SampleData/BAG_2016_Rotterdam_buildings_Edit.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -431,17 +465,18 @@
       <SingleCategoryDiagramRenderer diagramType="Pie">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" sizeType="MM" minScaleDenominator="-4.65661e-10">
           <fontProperties description="MS Shell Dlg 2,7.5,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform></annotationform>
+      <annotationform>../../../../../.qgis2/python/plugins/StormClean/SampleData</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform></editform>
+      <editform>../../../../../.qgis2/python/plugins/StormClean/SampleData</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>../../../../../.qgis2/python/plugins/StormClean/SampleData</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -475,7 +510,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>445067.99561840802198276</ymax>
       </extent>
       <id>IncidentPoints20161223102812822</id>
-      <datasource>./IncidentPoints.shp</datasource>
+      <datasource>../../../../../.qgis2/python/plugins/StormClean/SampleData/IncidentPoints.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -725,14 +760,14 @@ def my_form_open(dialog, layer, feature):
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform>.</annotationform>
+      <annotationform>../../../../../.qgis2/python/plugins/StormClean/SampleData</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform>.</editform>
+      <editform>../../../../../.qgis2/python/plugins/StormClean/SampleData</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath>.</editforminitfilepath>
+      <editforminitfilepath>../../../../../.qgis2/python/plugins/StormClean/SampleData</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -766,7 +801,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>444296</ymax>
       </extent>
       <id>NWB_2016_Rotterdam_roads_Edit20161223103719705</id>
-      <datasource>./NWB_2016_Rotterdam_roads_Edit.shp</datasource>
+      <datasource>../../../../../.qgis2/python/plugins/StormClean/SampleData/NWB_2016_Rotterdam_roads_Edit.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -999,17 +1034,18 @@ def my_form_open(dialog, layer, feature):
       <SingleCategoryDiagramRenderer diagramType="Pie">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" sizeType="MM" minScaleDenominator="0">
           <fontProperties description="MS Shell Dlg 2,7.5,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" linePlacementFlags="10" placement="2" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform></annotationform>
+      <annotationform>../../../../../.qgis2/python/plugins/StormClean/SampleData</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform></editform>
+      <editform>../../../../../.qgis2/python/plugins/StormClean/SampleData</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>../../../../../.qgis2/python/plugins/StormClean/SampleData</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -1043,7 +1079,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>479724.18300000001909211</ymax>
       </extent>
       <id>NWB_2016_Rotterdam_train_tracks_Edit20161223103449696</id>
-      <datasource>./NWB_2016_Rotterdam_train_tracks_Edit.shp</datasource>
+      <datasource>../../../../../.qgis2/python/plugins/StormClean/SampleData/NWB_2016_Rotterdam_train_tracks_Edit.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1270,17 +1306,18 @@ def my_form_open(dialog, layer, feature):
       <SingleCategoryDiagramRenderer diagramType="Pie">
         <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" sizeType="MM" minScaleDenominator="-4.65661e-10">
           <fontProperties description="MS Shell Dlg 2,7.5,-1,5,50,0,0,0,0,0" style=""/>
+          <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" linePlacementFlags="10" placement="2" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform></annotationform>
+      <annotationform>../../../../../.qgis2/python/plugins/StormClean/SampleData</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform></editform>
+      <editform>../../../../../.qgis2/python/plugins/StormClean/SampleData</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
+      <editforminitfilepath>../../../../../.qgis2/python/plugins/StormClean/SampleData</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -1314,7 +1351,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>448098.35003662109375</ymax>
       </extent>
       <id>Wijk_Rott20161223102810558</id>
-      <datasource>./Wijk_Rott.shp</datasource>
+      <datasource>../../../../../.qgis2/python/plugins/StormClean/SampleData/Wijk_Rott.shp</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1581,14 +1618,14 @@ def my_form_open(dialog, layer, feature):
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
       <DiagramLayerSettings yPosColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
-      <annotationform>.</annotationform>
+      <annotationform>../../../../../.qgis2/python/plugins/StormClean/SampleData</annotationform>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions/>
-      <editform>.</editform>
+      <editform>../../../../../.qgis2/python/plugins/StormClean/SampleData</editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath>.</editforminitfilepath>
+      <editforminitfilepath>../../../../../.qgis2/python/plugins/StormClean/SampleData</editforminitfilepath>
       <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
 """
 QGIS forms can have a Python function that is called when the form is
@@ -1613,6 +1650,51 @@ def my_form_open(dialog, layer, feature):
         <rowstyles/>
         <fieldstyles/>
       </conditionalstyles>
+    </maplayer>
+    <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+      <extent>
+        <xmin>-370406.08097423112485558</xmin>
+        <ymin>5169.00105914362939075</ymin>
+        <xmax>595401.9205741505138576</xmax>
+        <ymax>903401.92043969361111522</ymax>
+      </extent>
+      <id>brtachtergrondkaartgrijs20161223115650735</id>
+      <datasource>tileMatrixSet=EPSG:28992&amp;crs=EPSG:28992&amp;layers=brtachtergrondkaartgrijs&amp;styles=&amp;format=image/png&amp;url=http://geodata.nationaalgeoregister.nl/wmts?VERSION%3D1.0.0%26request%3DGetCapabilities</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>BackgroundGrey</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957,0.343988,-1.87740,4.0725 +units=m +no_defs</proj4>
+          <srsid>2517</srsid>
+          <srid>28992</srid>
+          <authid>EPSG:28992</authid>
+          <description>Amersfoort / RD New</description>
+          <projectionacronym>sterea</projectionacronym>
+          <ellipsoidacronym>bessel</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <customproperties>
+        <property key="identify/format" value="Undefined"/>
+      </customproperties>
+      <provider>wms</provider>
+      <noData>
+        <noDataList bandNo="1" useSrcNoData="0"/>
+      </noData>
+      <map-layer-style-manager current="">
+        <map-layer-style name=""/>
+      </map-layer-style-manager>
+      <pipe>
+        <rasterrenderer opacity="1" alphaBand="-1" band="1" type="singlebandcolordata">
+          <rasterTransparency/>
+        </rasterrenderer>
+        <brightnesscontrast brightness="0" contrast="0"/>
+        <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
+        <rasterresampler maxOversampling="2"/>
+      </pipe>
+      <blendMode>0</blendMode>
     </maplayer>
   </projectlayers>
   <properties>
