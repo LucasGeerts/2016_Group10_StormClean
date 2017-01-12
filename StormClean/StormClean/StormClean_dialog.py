@@ -58,7 +58,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
     #GUI
         self.Pages.setCurrentIndex(0)
     #Interaction
-        self.Login.clicked.connect(self.buttontopage1)
+        self.Login.clicked.connect(self.topage1)
         self.Cancel.clicked.connect(self.close)
         self.pushButton_logout.clicked.connect(self.Logoutclicked)
         self.pushButton_logout2.clicked.connect(self.Logoutclicked)
@@ -66,10 +66,11 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         self.pushButton_logout4.clicked.connect(self.Logoutclicked)
         self.pushButton_logout5.clicked.connect(self.Logoutclicked)
         self.listWidget_listofneighbourhood.currentItemChanged.connect(self.topage2)
-        self.listWidget_incidents.currentRowChanged.connect(self.topage3)
-        self.back.clicked.connect(self.buttontopage1)
+        self.listWidget_incidents.currentItemChanged.connect(self.topage3)
+        self.back.clicked.connect(self.topage1)
         self.pushButton_No.clicked.connect(self.notoincident)
         self.pushButton_Yes.clicked.connect(self.yestoincident)
+        self.pushButton_arrived.clicked.connect(self.topage5)
 
     #shortest route
         self.graph = QgsGraph()
@@ -92,9 +93,26 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
                 self.iface.addProject(unicode(new_file))
                 scenario_open = True
 
-    def buttontopage1(self):
+        startpointlayer = uf.getLegendLayerByName(self.iface, 'StartPointsRoute')
+        allstartpointfeatures = startpointlayer.getFeatures()
+        source_points = [feature.geometry().asPoint() for feature in allstartpointfeatures]
+        startpoint = random.choice(source_points)
+        global startpoint
+        #print startpoint
+
+        onestartpointlayer = uf.getLegendLayerByName(self.iface, "OneStartPoint")
+        # create one if it doesn't exist
+        if not onestartpointlayer:
+            attribs = ['id']
+            types = [QtCore.QVariant.String]
+            onestartpointlayer = uf.createTempLayer('OneStartPoint', 'POINT', startpointlayer.crs().postgisSrid(),
+                                                    attribs, types)
+            uf.loadTempLayer(onestartpointlayer)
+        uf.insertTempFeatures(onestartpointlayer, [startpoint], [['random string, after this a random number', 12]])
+
+    def topage1(self):
         if self.listWidget_incidents:
-            self.listWidget_incidents.clear()
+           self.listWidget_incidents.clear()
         self.Pages.setCurrentIndex(1)
         if self.canvas.layerCount() == 0:
             #Open map to canvas
@@ -148,7 +166,6 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             pass
         elif ret == 1:
 
-
             self.WijkName.setFontPointSize(18)
             self.WijkName.setFontWeight(600)
             self.WijkName.setText(name.text())
@@ -170,7 +187,7 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             incident = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
             rectangle = self.canvas_1.extent()
             incident.invertSelectionInRectangle(rectangle)
-            table = uf.getFieldValuesSorted(incident, 'IncidentNa', sorted = 'IncidentVa', selection = True)
+            table = uf.getFieldValuesSorted(incident, 'IncidentName', sorted = 'IncidentValue', selection = True)
             global table
             for itemsort, itemid, itemtext in table:
                 if itemtext == " REMOVE" or itemtext == "REMOVE" or str(itemtext) == "NULL":
@@ -184,8 +201,89 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         self.canvas.setExtent(layer.extent())
         self.canvas.refresh()
 
-    def topage3(self, index):
+    def topage3(self, listitem):
+        if listitem == None:
+            pass
+        else:
+            index = self.listWidget_incidents.currentRow()
+            layer = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
+            expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
+            attr = layer.getFeatures(QgsFeatureRequest(expr))
+            ids = [att.id() for att in attr]
+            layer.setSelectedFeatures(ids)
+            self.canvas_1.zoomToSelected(layer)
+            scale = self.canvas_1.scale()
+            msgBox = QtGui.QMessageBox()
+            msgBox.setWindowTitle('StormClean')
+            msgBox.setText('Would you like to select '+ str(table[index][2]) + '?')
+            msgBox.addButton(QtGui.QPushButton('No'), QtGui.QMessageBox.RejectRole)
+            msgBox.addButton(QtGui.QPushButton('Yes'), QtGui.QMessageBox.AcceptRole)
+            ret = msgBox.exec_()
+            if ret == 0:
+                pass
+            elif ret == 1:
 
+                self.textBrowser_incidentname.setFontPointSize(18)
+                self.textBrowser_incidentname.setFontWeight(600)
+                self.textBrowser_incidentname.setText(str(table[index][2]))
+
+                self.canvas_2.zoomToSelected(layer)
+                self.canvas_2.zoomScale(scale)
+                expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
+                attr = layer.getFeatures(QgsFeatureRequest(expr))
+                for att in attr:
+                    attribute =  att.attribute('ManualComment')
+                    if attribute != NULL:
+                        self.textBrowser_manualdiscription.setHtml(
+                            "<p><strong>Manual description</strong></p>" + str(attribute))
+                        self.textBrowser.setHtml(
+                            "<p><strong>NOT PROVIDED</strong></p>")
+                    else:
+                        self.textBrowser_manualdiscription.setHtml(
+                            "<p><strong>Manual description</strong><p>" + "<p>No information provided<p>")
+                        self.textBrowser.setHtml(
+                            "<p><strong>NOT PROVIDED</strong></p>")
+                global scale
+                global index
+
+                canvas_layers_2 = []
+                for item in uf.getCanvasLayers(self.iface, geom='all', provider='all'):
+                    if not item.isValid():
+                        raise IOError, "Failed to open the layer"
+                    QgsMapLayerRegistry.instance().addMapLayer(item)
+                    canvas_layers_2.append(QgsMapCanvasLayer(item))
+                item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
+                QgsMapLayerRegistry.instance().addMapLayer(item0)
+                canvas_layers_2.append(QgsMapCanvasLayer(item0))
+                self.canvas_2.setLayerSet(canvas_layers_2)
+                self.Pages.setCurrentIndex(3)
+
+            layer.removeSelection()
+            self.canvas_1.zoomToPreviousExtent()
+            self.canvas_1.zoomScale(scale)
+            self.canvas_1.refresh()
+
+    def notoincident(self):
+        #layer.removeSelection()
+        self.Pages.setCurrentIndex(2)
+
+
+    def yestoincident(self):
+        self.calculateRoute()
+
+        canvas_layers_3 = []
+        item1 = uf.getLegendLayerByName(self.iface, 'Routes')
+        item2 = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
+        item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
+
+        for itemx in [item1,item2,item0]:
+            QgsMapLayerRegistry.instance().addMapLayer(itemx)
+            canvas_layers_3.append(QgsMapCanvasLayer(itemx))
+        self.canvas_3.setLayerSet(canvas_layers_3)
+        self.canvas_3.setExtent(item1.extent())
+        self.Pages.setCurrentIndex(4)
+
+    def topage5(self):
         layer = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
         expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
         attr = layer.getFeatures(QgsFeatureRequest(expr))
@@ -193,75 +291,39 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         layer.setSelectedFeatures(ids)
         self.canvas_1.zoomToSelected(layer)
         scale = self.canvas_1.scale()
-        msgBox = QtGui.QMessageBox()
-        msgBox.setWindowTitle('StormClean')
-        msgBox.setText('Would you like to select '+ str(table[index][2]) + '?')
-        msgBox.addButton(QtGui.QPushButton('No'), QtGui.QMessageBox.RejectRole)
-        msgBox.addButton(QtGui.QPushButton('Yes'), QtGui.QMessageBox.AcceptRole)
-        ret = msgBox.exec_()
-        if ret == 0:
-            pass
-        elif ret == 1:
 
-            self.textBrowser_incidentname.setFontPointSize(18)
-            self.textBrowser_incidentname.setFontWeight(600)
-            self.textBrowser_incidentname.setText(str(table[index][2]))
+        self.textBrowser_incidentname_2.setFontPointSize(18)
+        self.textBrowser_incidentname_2.setFontWeight(600)
+        self.textBrowser_incidentname_2.setText(str(table[index][2]))
 
-            self.canvas_2.zoomToSelected(layer)
-            self.canvas_2.zoomScale(scale)
-            expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
-            attr = layer.getFeatures(QgsFeatureRequest(expr))
-            for att in attr:
-                attribute =  att.attribute('ManualComm')
-                if attribute != NULL:
-                    self.textBrowser_manualdiscription.setHtml(
-                        "<p><strong>Manual description</strong></p>" + str(attribute))
-                    self.textBrowser.setHtml(
-                        "<p><strong>NOT PROVIDED</strong></p>")
-                else:
-                    self.textBrowser_manualdiscription.setHtml(
-                        "<p><strong>Manual description</strong><p>" + "<p>No information provided<p>")
-                    self.textBrowser.setHtml(
-                        "<p><strong>NOT PROVIDED</strong></p>")
-            print table
-            print index
+        self.canvas_4.zoomToSelected(layer)
+        self.canvas_4.zoomScale(scale)
+        expr = QgsExpression('"ID"  =  ' + "'" + str(table[index][1]) + "'")
+        attr = layer.getFeatures(QgsFeatureRequest(expr))
+        for att in attr:
+            attribute = att.attribute('ManualComment')
+            if attribute != NULL:
+                self.textBrowser_manualdiscription_2.setHtml(
+                    "<p><strong>Manual description</strong></p>" + str(attribute))
+                self.textBrowser_2.setHtml(
+                    "<p><strong>NOT PROVIDED</strong></p>")
+            else:
+                self.textBrowser_manualdiscription_2.setHtml(
+                    "<p><strong>Manual description</strong><p>" + "<p>No information provided<p>")
+                self.textBrowser_2.setHtml(
+                    "<p><strong>NOT PROVIDED</strong></p>")
 
-            canvas_layers_2 = []
-            for item in uf.getCanvasLayers(self.iface, geom='all', provider='all'):
-                if not item.isValid():
-                    raise IOError, "Failed to open the layer"
-                QgsMapLayerRegistry.instance().addMapLayer(item)
-                canvas_layers_2.append(QgsMapCanvasLayer(item))
-            item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
-            QgsMapLayerRegistry.instance().addMapLayer(item0)
-            canvas_layers_2.append(QgsMapCanvasLayer(item0))
-            self.canvas_2.setLayerSet(canvas_layers_2)
-            self.Pages.setCurrentIndex(3)
+        canvas_layers_4 = []
+        item1 = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
+        item0 = uf.getLegendLayerByName(self.iface, 'BackgroundGrey')
 
-        layer.removeSelection()
-        self.canvas_1.zoomToPreviousExtent()
-        self.canvas_1.zoomScale(scale)
-        self.canvas_1.refresh()
+        for itemx in [item1,item0]:
+            QgsMapLayerRegistry.instance().addMapLayer(itemx)
+            canvas_layers_4.append(QgsMapCanvasLayer(itemx))
+        self.canvas_4.setLayerSet(canvas_layers_4)
+        self.canvas_4.setLayerSet(canvas_layers_4)
 
-    def notoincident(self):
-        #layer.removeSelection()
-        self.Pages.setCurrentIndex(2)
-
-
-
-
-
-
-
-
-
-
-
-    #TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
-    def yestoincident(self):
-        self.calculateRoute()
-
-        self.Pages.setCurrentIndex(4)
+        self.Pages.setCurrentIndex(5)
 
     def getNetwork(self):
         roads_layer = uf.getLegendLayerByName(self.iface, 'NWB_2016_Rotterdam_roads_Edit')
@@ -278,13 +340,14 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             selected_sources = uf.getLegendLayerByName(self.iface, 'IncidentPoints')
             allfeatures = selected_sources.getFeatures()
             source_points = [feature.geometry().asPoint() for feature in allfeatures]
+            source_points.append(startpoint)
             # build the graph including these points
             if len(source_points) > 1:
                 self.graph, self.tied_points = uf.makeUndirectedGraph(self.network_layer, source_points)
                 # the tied points are the new source_points on the graph
                 if self.graph and self.tied_points:
                     text = "network is built for %s points" % len(self.tied_points)
-                    print text
+                    #print text
                     # self.insertReport(text)
         return
 
@@ -294,8 +357,8 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
         options = len(self.tied_points)
         if options > 1:
             # origin and destination are given as an index in the tied_points list
-            origin = 24  # 24 is a point in Feijenoord
-            destination = 34  # 34 is also a point in Feijenoord
+            origin = -1
+            destination = table[index][1]
             # destination = random.randint(1,options-1)  # this was original code, I guess we don't want a random destination...
             # calculate the shortest path for the given origin and destination
             path = uf.calculateRouteDijkstra(self.graph, self.tied_points, origin, destination)
@@ -309,9 +372,9 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
                                                   attribs, types)
                 uf.loadTempLayer(routes_layer)
             # insert route line
-            for route in routes_layer.getFeatures():
-                print route.id()
-            uf.insertTempFeatures(routes_layer, [path], [['random string, after this a random number', 12]])
+            #for route in routes_layer.getFeatures():
+                #print route.id()
+            uf.insertTempFeatures(routes_layer, [path], [[12]])
             # uf.insertTempFeatures(routes_layer, [path], [['testing',100.00]])
             # buffer = processing.runandload('qgis:fixeddistancebuffer',routes_layer,10.0,5,False,None)
             # self.refreshCanvas(routes_layer)
@@ -324,13 +387,3 @@ class StormCleanDialog(QtGui.QDialog, FORM_CLASS):
             for id in ids:
                 routes_layer.deleteFeature(id)
             routes_layer.commitChanges()
-
-
-
-
-
-
-
-
-
-

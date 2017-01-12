@@ -596,11 +596,15 @@ def calculateRouteTree(graph, tied_points, origin, destination, impedance=0):
 
 def calculateRouteDijkstra(graph, tied_points, origin, destination, impedance=0):
     points = []
+    print tied_points
+    print len(tied_points)
+    print origin, destination
     if tied_points:
         try:
             from_point = tied_points[origin]
             to_point = tied_points[destination]
         except:
+            print 'except'
             return points
 
         # analyse graph
