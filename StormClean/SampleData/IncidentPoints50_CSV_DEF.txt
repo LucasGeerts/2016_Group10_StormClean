@@ -1,0 +1,51 @@
+X,Y,ID,IncidentCategory,IncidentName,IncidentValue,Time,ManualComment
+86608.6033803346,427542.980284015,0,Water Damage,Flooded basement: Residential,3,06:01:00
+98819.260299526,440759.820420794,1,Blocked Road,Tree,5,12:53:00,"Tree is only partly on the road"
+95264.5850283883,434667.090298311,2,Building Damage,Facade damage,2,19:14:00
+87027.3750925303,442799.797291789,3,Other Damage,Agricultural nuisance,2,09:26:00,"Flooded meadow"
+98177.7304469496,428192.010039029,4,Other Damage,Overturned watervehicle,2,23:36:00
+94795.3398914785,440036.13713767,5,Infrastructure,Public Transport: Train,4,07:03:00,"Tree has fallen on one track other tracks still open. ProRail is informed"
+89093.4514486982,438056.41131245,6,Building Damage,Facade damage,2,11:35:00,"Facade very close to important/big road"
+90365.211215359,445067.995618408,7,Other Damage,Agricultural nuisance,2,11:16:00,"Many (big) branches and building parts on meadow"
+88860.6274806163,432223.856424472,8,Water Damage,Flooded street,4,07:14:00,"Big flood on buisinessarea"
+87920.611043214,429104.399517933,9,Building Damage,Roof damage,2,00:47:00,"Glass roof of glass house has collapsed"
+97035.9985546914,433000.454721463,10,Blocked Road,Street furniture,4,04:40:00
+88865.1046289833,436499.068600323,11,Blocked Road,Tree,5,05:29:00
+92017.8706739605,431518.577007224,12,Water damage,Flooded ground floor: Residential,5,15:44:00,"Full ground floor is flooded with 1 cm water. Neighbours have nuisance aswell."
+98819.260299526,440759.820420794,13,Blocked Road,Tree,5,13:09:00
+94825.1465828441,435187.628940909,14,Public Transport,Train,4,21:06:00
+88516.6514435124,437192.518602947,15,Building damage,Glass damage,2,23:50:00
+84641.6681212822,430685.407221659,16,Building damage,Fire damage,4,20:11:00,"There has been a small fire"
+97035.9985546914,433000.454721463,17,Blocked Road,Street furniture,4,05:15:00,"Traffic light fell on the road"
+92017.8706739605,431518.577007224,18,Water damage,Flooded ground floor: Residential,5,16:04:00,"There is a lot of water in the streets, my ground floor is almost completely flooded"
+86670.3671305098,435087.762337932,19,Water Damage,Flooded basement: Commercial,3,22:31:00,"Industrial area"
+94825.1465828441,435187.628940909,20,Public Transport,Train,4,21:02:00,"Trains can't ride"
+84600.7337962934,430403.990633152,21,Power Outage,Industrial,3,23:10:00
+96417.7174600806,432577.408621387,22,Power Outage,Commercial,3,14:34:00,"Office building"
+99144.8293004702,440008.39002622,23,Building Damage,Entrypoint damage,3,09:33:00
+86240.4914771534,432415.600560844,24,Blocked Road,Flooded street,4,02:07:00,"Cars can pass but very slow, big trafficjam"
+100281.292964471,431399.604496034,25,Blocked Road,Other small object,2,04:31:00
+91095.7204163537,436272.3328973,26,Water Damage,Flooded garden,1,11:50:00
+96417.7174600806,432577.408621387,27,Power Outage,Commercial,3,14:43:00
+87585.0914141265,435067.406231856,28,Water Damage,Flooded watervehicle,1,22:24:00
+92958.9245136635,441399.846873095,29,Blocked Road,Tree,5,07:02:00,"Complete road is blocked no-one can pass"
+90941.1790093503,442397.174396274,30,Blocked Road,Street furniture,4,01:08:00
+100281.292964471,431399.604496034,31,Blocked Road,Other small object,2,02:57:00
+86458.3411351961,444253.264346827,32,Blocked Road,Flooded street,4,08:00:00,"Small road, almost no cars"
+88727.6704871321,429577.375201591,33,Building Damage,Smoke damage,4,00:26:00
+100281.292964471,431399.604496034,34,Blocked Road,Other small object,2,04:50:00,"Building parts on the road"
+98784.4007436109,437663.590533853,35,Blocked Road,Branches,2,17:34:00,"Multiple branches on the bike lane, very annoying"
+93478.6998621181,435732.891630441,36,Power Outage,Governmental,3,07:44:00
+98819.260299526,440759.820420794,37,Blocked Road,Tree,5,12:36:00
+89803.1238764268,435582.057815446,38,Building Damage,Facade damage,2,10:36:00
+89573.1052260214,435007.549186995,39,Other Damage,Overturned watervehicle,2,21:46:00
+91964.8287664232,436828.276205019,40,Power Outage,Residential,2,14:33:00,"Complete street is without electricity"
+94232.0319818777,431019.457117872,41,Infrastructure,Tram,4,04:27:00
+96562.623945672,434892.218292953,42,Other Damage,Please define in comment,2,12:39:00,"A lot of broken branches and trees in forest area"
+92662.2175856272,430024.55107403,43,Water Damage,Flooded basement: residential,3,16:15:00
+84032.341154982,431134.565620545,44,Blocked Road,Flooded street,4,09:45:00,"Industrial area"
+97244.7436536172,436939.308034394,45,Building Damage,Roof damage,2,11:40:00
+91964.8287664232,436828.276205019,46,Power Outage,Residential,2,14:18:00,"No electricity"
+98802.2700597557,442047.526514454,47,Power Outage,Commercial,3,07:44:00,"Office building, full building without any electricity"
+93817.0872109698,434728.375600036,48,Water Damage,Flooded garden,1,08:41:00,"Help! My plants are drowning!"
+97244.7436536172,436939.308034394,49,Building Damage,Roof damage,2,11:59:00

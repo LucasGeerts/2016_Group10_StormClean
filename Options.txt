@@ -1,0 +1,47 @@
+﻿Blocked road:
+-	Vehicle
+-	Tree
+-	Branches
+-	Street furniture
+-	Flooded street
+-	Other small object (<= 50% blocked road)
+-	Other Large object (>50% blocked road)
+
+Water damage:
+-	Flooded basement
+	-	Residential
+	-	Commercial
+	- 	Public Transport
+-	Flooded ground floor
+	-	Residential
+	-	Commercial
+	- 	Public Transport
+-	Flooded garden
+-	Flooded vehicle
+-	Flooded watervehicle
+
+Building damage:
+-	Roof damage
+-	Facade damage
+-	Glass damage
+-	Entrypoint damage
+-	Fire damage
+-	Smoke damage
+
+Power outage:
+-	Residential
+-	Industrial
+-	Commercial
+- 	Governmental
+-	Public Transport
+
+Infrastructure:
+- 	Train
+-	Tram
+-	Metro
+
+Other damage:
+-	Overturned watervehicle
+
+
+
